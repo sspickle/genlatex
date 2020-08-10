@@ -1,0 +1,29 @@
+<?xml version="1.0"  encoding="UTF-8" ?>
+<manifest identifier="MANIFEST1" xmlns="http://www.imsglobal.org/xsd/imscp_v1p1" xmlns:imsmd="http://www.imsglobal.org/xsd/imsmd_v1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imscp_v1p1 http://www.imsglobal.org/xsd/imscp_v1p1.xsd http://www.imsglobal.org/xsd/imsmd_v1p2 http://www.imsglobal.org/xsd/imsmd_v1p2.xsd"><metadata><imsmd:lom><imsmd:general><imsmd:identifier><imsmd:langstring xml:lang="en-US">173d75c7554</imsmd:langstring>
+
+</imsmd:identifier>
+
+<imsmd:title><imsmd:langstring xml:lang="en-US">exportAssessment</imsmd:langstring>
+
+</imsmd:title>
+
+</imsmd:general>
+
+</imsmd:lom>
+
+</metadata>
+
+<organizations></organizations>
+
+<resources><resource href="exportAssessment.xml" identifier="RESOURCE1" type="imsqti_xmlv1p1"><file href="exportAssessment.xml"></file>
+
+{% for obj in objects %}
+<file href="{{ obj.path }}"></file>
+{% endfor %}
+
+</resource>
+
+</resources>
+
+</manifest>
+

@@ -1,0 +1,10 @@
+*~
+.DS_*
+Icon*
+__pycache__
+*.pdf
+*.log
+*.aux
+*.tex
+output/
+*.zip

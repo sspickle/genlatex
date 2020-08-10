@@ -1,0 +1,208 @@
+{% extends "base.xml" %}
+
+{% if title %}
+{% block title %}{{ title }}{% endblock title %}
+{% endif %}
+
+{% block course %}{{ course }}{% endblock %}
+
+{% block items %}
+
+{% for obj in objects %}
+
+<item ident="2168671" title="File Upload">
+  <duration></duration>
+
+
+    <itemmetadata>
+      <qtimetadata>
+        <qtimetadatafield>
+          <fieldlabel>qmd_itemtype</fieldlabel>
+
+
+          <fieldentry>File Upload</fieldentry>
+
+
+        </qtimetadatafield>
+
+
+        <qtimetadatafield>
+          <fieldlabel>TEXT_FORMAT</fieldlabel>
+
+
+          <fieldentry>HTML</fieldentry>
+
+
+        </qtimetadatafield>
+
+
+        <qtimetadatafield>
+          <fieldlabel>ITEM_OBJECTIVE</fieldlabel>
+
+
+          <fieldentry></fieldentry>
+
+
+        </qtimetadatafield>
+
+
+        <qtimetadatafield>
+          <fieldlabel>ITEM_KEYWORD</fieldlabel>
+
+
+          <fieldentry></fieldentry>
+
+
+        </qtimetadatafield>
+
+
+        <qtimetadatafield>
+          <fieldlabel>ITEM_RUBRIC</fieldlabel>
+
+
+          <fieldentry></fieldentry>
+
+
+        </qtimetadatafield>
+
+
+        <qtimetadatafield>
+          <fieldlabel>ITEM_TAGS</fieldlabel>
+
+
+          <fieldentry></fieldentry>
+
+
+        </qtimetadatafield>
+
+
+        <qtimetadatafield>
+          <fieldlabel>ATTACHMENT</fieldlabel>
+
+
+          <fieldentry>{{ obj.path }}|{{ obj.fname }}|application/pdf
+</fieldentry>
+
+
+        </qtimetadatafield>
+
+
+      </qtimetadata>
+
+
+    </itemmetadata>
+
+
+    <rubric view="All">
+      <material>
+        <mattext charset="ascii-us" texttype="text/plain" xml:space="default"></mattext>
+
+
+      </material>
+
+
+    </rubric>
+
+
+    <presentation label="Resp004">
+      <flow class="Block">
+        <material>
+          <mattext charset="ascii-us" texttype="text/plain" xml:space="default"><![CDATA[<p>This is a &quot;download, write, scan, upload&quot; question.</p>
+
+<ol>
+	<li>Please print the attached file.</li>
+	<li>Answer on paper.</li>
+	<li>Scan your solution as a PDF file.</li>
+	<li>Upload your solution.</li>
+</ol>
+
+<p> </p>
+
+<p> </p>
+]]></mattext>
+
+
+        </material>
+
+
+        <material>
+          <mat_extension>htmlarea/navigo_popups/file_upload.jsp</mat_extension>
+
+
+        </material>
+
+
+        <response_str ident="upload" rcardinality="Single" rtiming="No">
+          <material_ref></material_ref>
+
+
+        </response_str>
+
+
+      </flow>
+
+
+    </presentation>
+
+
+    <resprocessing>
+      <outcomes>
+        <decvar defaultval="0" maxvalue="0.0" minvalue="0.0" varname="SCORE" vartype="Integer"></decvar>
+
+
+      </outcomes>
+
+
+    </resprocessing>
+
+
+    <itemfeedback ident="Correct" view="All">
+      <flow_mat class="Block">
+        <material>
+          <mattext charset="ascii-us" texttype="text/plain" xml:space="default"></mattext>
+
+
+        </material>
+
+
+        <material>
+          <matimage embedded="base64" imagtype="text/html" uri=""></matimage>
+
+
+        </material>
+
+
+      </flow_mat>
+
+
+    </itemfeedback>
+
+
+    <itemfeedback ident="InCorrect" view="All">
+      <flow_mat class="Block">
+        <material>
+          <mattext charset="ascii-us" texttype="text/plain" xml:space="default"></mattext>
+
+
+        </material>
+
+
+        <material>
+          <matimage embedded="base64" imagtype="text/html" uri=""></matimage>
+
+
+        </material>
+
+
+      </flow_mat>
+
+
+    </itemfeedback>
+
+
+</item>
+
+
+{% endfor %}
+
+{% endblock items %}
