@@ -10,7 +10,7 @@
 
 {% for obj in objects %}
 
-<item ident="2168671" title="File Upload">
+<item ident="{{ obj.ident}}" title="File Upload">
   <duration></duration>
 
 
