@@ -1,0 +1,39 @@
+\documentclass[11pt, oneside]{article}
+\usepackage{geometry}                
+\geometry{letterpaper}               
+\usepackage[parfill]{parskip}    
+\usepackage{graphicx}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\title{TLO 2v2-\VAR{data.vnum}}
+\author{}
+
+\begin{document}
+\begin{noindent}
+\begin{flushleft}
+
+TLO 2v2-\VAR{data.vnum}\hfill  Name $\rule{4cm}{0.15mm}$
+
+\hfill  Date $\rule{4cm}{0.15mm}$
+
+\vspace{12 pt}
+
+A point charge of \VAR{data.qStr1} nC ($\VAR{data.qStr2}$ C) is located at $\langle$\VAR{data.posStr}$\rangle$ m. 
+
+\vspace{11 pt}
+
+(a) What is the (vector) electric field contributed by this charge at location $\langle$\VAR{data.fpStr}$\rangle$ m? You need to show all your work carefully in order to get credit.
+
+\vspace{4 in}
+
+(b) Next, a \VAR{data.name} nucleus, containing \VAR{data.protons} protons and \VAR{data.neutrons} neutrons) is placed at the location $\langle$\VAR{data.fpStr}$\rangle$ m. What is the (vector) force on the \VAR{data.name} nucleus? Show your work.
+
+\vspace{4 in}
+
+(c) What is the acceleration of the \VAR{data.name} nucleus? Show your work.
+
+\end{flushleft}
+\end{noindent}
+\end{document}

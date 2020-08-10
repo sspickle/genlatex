@@ -65,15 +65,16 @@ def createTeXs(data = None,
 
     for i in range(len(data)):
         d = data[i]
-        a = answers[i]
         cnt = str(seeds[i]).zfill(digits)
         texPromptSource = template.render(data = d)
-        texSolnSource = template.render(data=d, ans=a)
         f = open(outQuizTemplate.format(cnt),'w')
         f.write(texPromptSource)
         f.close()
-        f = open(outSolnTemplate.format(cnt),'w')
-        f.write(texSolnSource)
-        f.close()
+
+        if (answers):
+            texSolnSource = template.render(data=d, ans=answers[i])
+            f = open(outSolnTemplate.format(cnt),'w')
+            f.write(texSolnSource)
+            f.close()
 
 createTeXs(**module.getTemplateValues(args.num, seeds))
