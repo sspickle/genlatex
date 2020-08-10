@@ -12,8 +12,11 @@ parser = argparse.ArgumentParser( description="Generate LateX Files from a templ
                                   epilog="and that's how you'd generate some LaTeX files.")
 
 parser.add_argument('file_path')
-parser.add_argument('--seed','-s', nargs='+',default=None, type=int)
-parser.add_argument('--num','-n',action='store', default=1, type=int)
+parser.add_argument('--seed','-s', nargs='+',default=None, type=int, help='seed value(s)')
+parser.add_argument('--num','-n',action='store', default=1, type=int, help='number of outputs')
+parser.add_argument('--ans', '-a', action='store_true', help='answer only mode')
+parser.add_argument('--prompt', '-p', action='store_true', help='prompt only mode')
+parser.add_argument('--debug', '-d', action='store_true', help='debug mode on')
 
 args = parser.parse_args()
 
@@ -64,17 +67,21 @@ def createTeXs(data = None,
     digits = math.ceil(math.log(max(seeds)+1,10)) # zfill digits
 
     for i in range(len(data)):
-        d = data[i]
         cnt = str(seeds[i]).zfill(digits)
-        texPromptSource = template.render(data = d)
-        f = open(outQuizTemplate.format(cnt),'w')
-        f.write(texPromptSource)
-        f.close()
+        
+        if data and not args.ans:
+            texPromptSource = template.render(data = data[i])
+            f = open(outQuizTemplate.format(cnt),'w')
+            f.write(texPromptSource)
+            f.close()
 
-        if (answers):
-            texSolnSource = template.render(data=d, ans=answers[i])
+        if answers and not args.prompt:
+            texSolnSource = template.render(data=data[i], ans=answers[i])
             f = open(outSolnTemplate.format(cnt),'w')
             f.write(texSolnSource)
             f.close()
 
+if args.debug:
+    import pdb
+    pdb.set_trace()
 createTeXs(**module.getTemplateValues(args.num, seeds))

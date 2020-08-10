@@ -26,13 +26,38 @@ A point charge of \VAR{data.qStr1} nC ($\VAR{data.qStr2}$ C) is located at $\lan
 
 (a) What is the (vector) electric field contributed by this charge at location $\langle$\VAR{data.fpStr}$\rangle$ m? You need to show all your work carefully in order to get credit.
 
+%% if ans
+
+$$ \vec{r} = \VAR{ans.r} {\rm m}$$
+$$ \hat{r} = \VAR{ans.r_hat} $$
+$$ r = \VAR{ans.rmag} {\rm m} $$
+$$ \vec{E} = \VAR{ans.E} {\rm N/C} $$
+
+%% else
+
 \vspace{4 in}
+
+%% endif
 
 (b) Next, a \VAR{data.name} nucleus, containing \VAR{data.protons} protons and \VAR{data.neutrons} neutrons) is placed at the location $\langle$\VAR{data.fpStr}$\rangle$ m. What is the (vector) force on the \VAR{data.name} nucleus? Show your work.
 
+%% if ans
+
+$$ \vec{F} = \VAR{ans.F} {\rm N} $$
+
+%% else
+
 \vspace{4 in}
 
+%% endif
+
 (c) What is the acceleration of the \VAR{data.name} nucleus? Show your work.
+
+%% if ans
+
+$$ \vec{a} = \VAR{ans.a} {\rm m/s^2} $$
+
+%% endif
 
 \end{flushleft}
 \end{noindent}
