@@ -24,7 +24,7 @@ def getTemplateValues(numSamples, seeds):
 
         element = random.choice(allElements)
         aVal = random.choice([2,3,4,5,6,7,8,9])
-        direction = random.choice(['right','left','up','down'])
+        direction = random.choice(['+x','-x','+y','-y','+z','-z'])
 
         newData = {
             'vnum':str(seeds[i]).zfill(2),

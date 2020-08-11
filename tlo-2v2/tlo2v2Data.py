@@ -10,8 +10,12 @@ data = []
 qe = 1.6e-19
 oofpez = 9e9
 
-def latex_float(f):
-    float_str = "{0:.3g}".format(f)
+def latex_float(f, fmt="{0:.3g}"):
+    #
+    # convert scientific formats to LaTeXish.
+    #
+    
+    float_str = fmt.format(f)
     if "e" in float_str:
         base, exponent = float_str.split("e")
         return r"{0} \times 10^{{{1}}}".format(base, int(exponent))
@@ -19,6 +23,10 @@ def latex_float(f):
         return float_str
         
 def latex_vec(v):
+    #
+    # v should be a vpython vec/vector object.
+    #
+    
     v = f"<{latex_float(v.x)},{latex_float(v.y)},{latex_float(v.z)}>"
     v = v.replace('<',r'\langle')
     v = v.replace('>',r'\rangle')

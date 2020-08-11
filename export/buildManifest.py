@@ -27,7 +27,7 @@ for fpath in paths:
     directory, fname = os.path.split(fpath)
     objs.append({'path':fpath, 'fname':fname, 'ident':istart + counter})
 
-output = template.render(objects = objs, title="Test Import", course="crs")
+output = template.render(objects = objs, title="Pool Import", course="crs")
 
 f = open('./output/exportAssessment.xml','w')
 f.write(output)
@@ -39,4 +39,3 @@ output = template.render(objects = objs)
 f = open('./output/imsmanifest.xml','w')
 f.write(output)
 f.close()
-
