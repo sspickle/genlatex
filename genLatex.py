@@ -84,4 +84,5 @@ def createTeXs(data = None,
 if args.debug:
     import pdb
     pdb.set_trace()
+
 createTeXs(**module.getTemplateValues(args.num, seeds))
