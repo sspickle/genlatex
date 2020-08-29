@@ -5,6 +5,7 @@
 
 find output -name "*.pdf" | xargs python buildManifest.py
 
-cd output && zip ../export.zip *.xml attachment/*/*/*/*.pdf && cd ..
+cd output && zip ../../src/export.zip *.xml attachment/*/*/*/*.pdf && cd ..
+
 
 

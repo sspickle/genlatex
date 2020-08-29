@@ -45,6 +45,8 @@ I'm no longer keeping quiz sources in this repo, for obvious reasons!
 
 Students are smart. ;-)
 
+Update: Now you can run the full docker version:
 
-
+    docker run --rm -it -v `pwd`:/app/src genlatex-full sh ./doExport.sh genYourData.py
+    
 
