@@ -9,5 +9,7 @@ __pycache__
 *.zip
 /venv
 /tlo*
+.gitignore
+.git
 /export/output/*.xml
 

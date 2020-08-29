@@ -1,0 +1,56 @@
+\documentclass[11pt, oneside]{article}
+\usepackage{geometry}                
+\geometry{letterpaper}               
+\usepackage[parfill]{parskip}    
+\usepackage{graphicx}		
+				
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\title{\VAR{data.tlo}-\VAR{data.vnum}}
+\author{}
+
+\begin{document}
+\VAR{data.tlo}-(\VAR{data.vnum})\hfill  Name $\rule{4cm}{0.15mm}$
+
+\hfill  Date $\rule{4cm}{0.15mm}$
+
+\vspace{12 pt}
+
+At a certain time a star of mass $\VAR{data.Mstar}$ is located at 
+$\VAR{data.rStar}$. A planet of mass $\VAR{data.Mplanet}$ is located at
+$\VAR{data.rPlanet}$ and is moving with a velocity of 
+$\VAR{data.vPlanet}$.
+
+\vspace{11 pt}
+
+(a) At a time $\VAR{data.dt}$ later, what is the new velocity of the planet? Show your work clearly.
+
+%%if ans
+
+$$\vec{r} = \VAR{ans.r}$$
+
+$$\hat{r} = \VAR{ans.rhat}$$
+
+$$\vec{F} = \VAR{ans.F}$$
+
+$$d\vec{p} = \VAR{ans.dp}$$
+
+The new velocity is: $\VAR{ans.vNew}$.
+
+%%else
+
+\vspace{3 in}
+
+%%endif
+
+(b) Where is the planet at this later time? Show your work clearly.
+
+%%if ans
+
+The new position is: $\VAR{ans.rNew}$.
+
+%%endif
+
+\end{document}
+
