@@ -25,4 +25,20 @@ For example to create 10 versions of tlo-1v2 you'd say:
 
 Then check in the tlo-2v1 folder for your .tex files!
 
+To convert to pdf en-masse, with bash:
+
+    find tlo-2v1/*.tex |  xargs -n 1 pdflatex -output-directory tlo-2v1
+
+To export to a .zip for import into an assessment first copy the pdf files to 
+a staging directory for zipping.
+
+    cp tlo-2v1/*.pdf export/output/attachment/genlatex/quizzes/contents/
+    
+Next cd into export and run the `buildZip.sh` script.
+
+    cd export
+    sh buildZip.sh
+    
+There should be an 'export.zip' file in the 'export' directory.
+
 
