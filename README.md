@@ -41,4 +41,10 @@ Next cd into export and run the `buildZip.sh` script.
     
 There should be an 'export.zip' file in the 'export' directory.
 
+I'm no longer keeping quiz sources in this repo, for obvious reasons!
+
+Students are smart. ;-)
+
+
+
 
