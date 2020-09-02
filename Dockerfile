@@ -2,18 +2,18 @@ FROM python:3.8-buster
 
 RUN apt-get update 
 
-RUN apt-get install -qy emacs-nox
+RUN apt-get install -qy emacs-nox zip
 
 RUN pip install -U pip
 
-RUN mkdir /app
+RUN mkdir /work
 
-WORKDIR /app
+WORKDIR /work
 
-COPY requirements.txt /app
+COPY requirements.txt /work
 
 RUN pip install -r requirements.txt
 
-COPY . /app
+COPY . /work
 
-CMD [bash]
+CMD ["/bin/bash","-v", "buildTeXs.sh"]
