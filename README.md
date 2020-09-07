@@ -63,11 +63,11 @@ Or the mini-docker (Dockerfile)
 
 to build the mini-docker (without a full LaTeX install ~1.4GB)
 
-   docker build -t genlatex .
+    docker build -t genlatex .
 
 to build the full docker build (with a full LaTeX install ~7GB)
 
-   docker build -f Dockerfile-w-latex -t genlatex-full .
+    docker build -f Dockerfile-w-latex -t genlatex-full .
 
 
 
