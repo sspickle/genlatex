@@ -1,8 +1,8 @@
 #!/bin/bash
 
-echo Runing buildTeXs, buildPDFs, buildZip.sh
+echo Runing buildTeXs, buildPDFs, buildZip.sh with args $@
 
-/bin/bash buildTeXs.sh
+/bin/bash buildTeXs.sh  $@
 
 /bin/bash buildPDFs.sh
 

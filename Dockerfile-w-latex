@@ -23,4 +23,7 @@ COPY . /work
 
 RUN pip install .
 
-CMD [bash]
+ENTRYPOINT ["/bin/bash"]
+
+CMD ["doExport.sh", "-n", "10"]
+

@@ -53,6 +53,21 @@ I'm no longer keeping quiz sources in this repo, for obvious reasons!
 
 Students are smart. ;-)
 
-Update: Now you can run the full docker version:
+Update: Now you can run the full docker (Dockerfile-w-latex) version:
 
-    docker run --rm -it -v `pwd`:/app/src genlatex-full sh ./doExport.sh genYourData.py
+    docker run --rm -it -v `pwd`:/work/src genlatex-full doExport.sh -n 10 tlo-EX-Data.py
+
+Or the mini-docker (Dockerfile)
+
+    docker run --rm -it -v `pwd`:/work/src genlatex buildTeXs.sh -n 10 tlo-EX-Data.py
+
+to build the mini-docker (without a full LaTeX install ~1.4GB)
+
+   docker build -t genlatex .
+
+to build the full docker build (with a full LaTeX install ~7GB)
+
+   docker build -f Dockerfile-w-latex -t genlatex-full .
+
+
+

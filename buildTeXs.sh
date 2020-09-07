@@ -1,6 +1,10 @@
 #!/bin/bash
 
-echo "executing:" genlatex $@
+#
+# assume we're in docker, everything is in src
+#
 
-genlatex $@
+echo "executing:" genlatex --src src $@
+
+genlatex --src src $@
 
