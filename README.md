@@ -6,7 +6,11 @@ I've cooked up a templating scheme using [jijna2](https://jinja.palletsprojects.
 
 This [article](http://eosrei.net/articles/2015/11/latex-templates-python-and-jinja2-generate-pdfs) was very helpful.
 
-To get started create a virtual environment:
+To get started clone this repository, and create a virtual environment:
+
+    git clone https://github.com/sspickle/genlatex.git
+
+    cd genlatex
 
     python -m venv venv
 
@@ -15,28 +19,32 @@ To get started create a virtual environment:
 
     pip install -r requirements.txt
 
-Once you have that, you can run getLatex using:
+    pip install .
 
-    python genLatex.py [ options ] path/to/python/file.py
+Once you have that, you can 'cd' to the directory with your template and data generator file and run getlatex using:
 
-For example to create 10 versions of tlo-1v2 you'd say:
+    genlatex [ options ] dataGeneratorFile.py
 
-    python genLatex.py -n 10 tlo-2v1/tlo2v1Data.py
+For example to create 10 versions of the example you could:
 
-Then check in the tlo-2v1 folder for your .tex files!
+    cd example
+
+    genlatex -n 10 tlo-EX-Data.py
+
+Then check in the example folder for your .tex files!
 
 To convert to pdf en-masse, with bash:
 
-    find tlo-2v1/*.tex |  xargs -n 1 pdflatex -output-directory tlo-2v1
+    find *.tex |  xargs -n 1 pdflatex
 
 To export to a .zip for import into an assessment first copy the pdf files to 
 a staging directory for zipping.
 
-    cp tlo-2v1/*.pdf export/output/attachment/genlatex/quizzes/contents/
+    cp tlo-2v1/*.pdf ../export/output/attachment/genlatex/quizzes/contents/
     
 Next cd into export and run the `buildZip.sh` script.
 
-    cd export
+    cd ../export
     sh buildZip.sh
     
 There should be an 'export.zip' file in the 'export' directory.
@@ -48,5 +56,3 @@ Students are smart. ;-)
 Update: Now you can run the full docker version:
 
     docker run --rm -it -v `pwd`:/app/src genlatex-full sh ./doExport.sh genYourData.py
-    
-

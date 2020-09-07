@@ -3,6 +3,8 @@ import random
 import vpython as vp
 import numpy as np
 
+from genlatex import latex_float, latex_vec
+
 data = []
 
 """
