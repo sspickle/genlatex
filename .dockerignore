@@ -10,5 +10,6 @@ __pycache__
 /venv
 .gitignore
 .git
+genlatex.egg-info
 
 
