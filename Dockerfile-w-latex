@@ -4,13 +4,9 @@ RUN apt-get update
 
 RUN pip install -U pip
 
-RUN mkdir /app
+RUN mkdir /work
 
-WORKDIR /app
-
-COPY requirements.txt /app
-
-RUN pip install -r requirements.txt
+WORKDIR /work
 
 RUN apt-get install -qy \
     texlive-full \
@@ -19,6 +15,12 @@ RUN apt-get install -qy \
 	
 RUN apt-get install -qy emacs-nox
 
-COPY . /app
+COPY requirements.txt /work
+
+RUN pip install -r requirements.txt
+
+COPY . /work
+
+RUN pip install .
 
 CMD [bash]
