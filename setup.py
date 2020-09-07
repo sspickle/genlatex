@@ -13,6 +13,6 @@ setup(name='genlatex',
       ],
       zip_safe=False,
       entry_points = {
-          'console_scripts': ['genlatex=genlatex.getLatex:main'],
+          'console_scripts': ['genlatex=genlatex.genLatex:main'],
       },
 )

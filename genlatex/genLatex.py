@@ -73,6 +73,8 @@ def main():
 
         path = (path and os.path.join(args.srcdir,path)) or args.srcdir
         file_path = os.path.join(path, fname)
+    elif not path:
+        path = '.'
 
     if ext != '.py':
         print("Only python files can be imported.")
