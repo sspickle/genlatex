@@ -18,4 +18,9 @@ COPY . /work
 
 RUN pip install .
 
-CMD ["/bin/bash","-v", "buildTeXs.sh"]
+RUN chmod +x *.sh
+
+ENTRYPOINT ["/bin/bash"]
+
+CMD ["buildTeXs.sh"]
+

@@ -1,5 +1,6 @@
+#!/bin/bash
 
-echo python genLatex.py --num 10 --prompt src/$1
+echo Runing buildTeXs, buildPDFs, buildZip.sh
 
 /bin/bash buildTeXs.sh
 

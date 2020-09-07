@@ -1,5 +1,6 @@
+#!/bin/bash
 
 echo "executing:" genlatex $@
 
-python genlatex $@
+genlatex $@
 
