@@ -1,5 +1,5 @@
 
-echo "executing:" python genLatex.py $@
+echo "executing:" genlatex $@
 
-python genLatex.py $@
+python genlatex $@
 

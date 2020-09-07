@@ -16,4 +16,6 @@ RUN pip install -r requirements.txt
 
 COPY . /work
 
+RUN pip install .
+
 CMD ["/bin/bash","-v", "buildTeXs.sh"]
