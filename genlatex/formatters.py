@@ -2,6 +2,15 @@
 format things for LaTeX
 """
 
+def listish(x):
+    result = True
+    try:
+        len(x)
+    except TypeError:
+        result = False
+    
+    return result
+
 def latex_float(f, fmt="{0:.3g}"):
     """
     convert scientific formats to LaTeXish.
@@ -16,11 +25,11 @@ def latex_float(f, fmt="{0:.3g}"):
         
 def latex_vec(v, fmt="{0:.3g}"):
     """
-    v should be a vpython vec/vector object.
+    v could be a vpython vec/vector object, or an iterable
     """
-    
-    v = f"<{latex_float(v.x, fmt)},{latex_float(v.y, fmt)},{latex_float(v.z, fmt)}>"
+    if not listish(v):
+        v = (v.x, v.y, v.z) # it must be a vpython vector, convert to tuple
+    v = f"<{latex_float(v[0], fmt)},{latex_float(v[1], fmt)},{latex_float(v[2], fmt)}>"
     v = v.replace('<',r'\langle')
     v = v.replace('>',r'\rangle')
     return v
-
