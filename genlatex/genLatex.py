@@ -16,10 +16,12 @@ def checkDataSet(dataSet, args):
     Should we deal with this data set?
     """
     result = False
-    if args.include and dataSet.name in args.include:
-        result = True
-    elif args.exclude and dataSet.name not in args.exclude:
-        result = True
+    if args.include:
+        if dataSet.name in args.include:
+            result = True
+    elif args.exclude:
+        if dataSet.name not in args.exclude:
+            result = True
     else:
         result = True
     return result
