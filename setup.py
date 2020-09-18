@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='genlatex',
-      version='0.11',
+      version='0.12',
       description='A simple template based doc generator',
       url='https://github.com/sspickle/genlatex',
       author='Steve Spicklemire',

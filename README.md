@@ -69,5 +69,7 @@ to build the full docker build (with a full LaTeX install ~7GB)
 
     docker build -f Dockerfile-w-latex -t genlatex-full .
 
+CHANGES:
 
-
+	v 0.12: Added units to formatters (e.g., latex_float(2.31, units="m"))
+	
