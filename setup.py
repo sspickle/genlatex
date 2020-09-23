@@ -1,8 +1,13 @@
 from setuptools import setup
 
+with open('README.md') as f:
+    long_description = f.read()
+
 setup(name='genlatex',
-      version='0.12',
+      version='0.14',
       description='A simple template based doc generator',
+      long_description=long_description,
+      long_description_content_type='text/markdown',
       url='https://github.com/sspickle/genlatex',
       author='Steve Spicklemire',
       author_email='steve@spvi.com',

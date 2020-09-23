@@ -7,6 +7,7 @@ import math
 import random
 import importlib.util
 import sys
+import platform
 
 from .convertOldStyle import ConvertOldStyleDataGenerator
 from .texData import TeXData
@@ -36,7 +37,7 @@ def createTeXs(latex_jinja_env,
     for dataSet in dataSets:
         if checkDataSet(dataSet, args):
             fnameTemplate = os.path.sep.join([path, dataSet.fileNameTemplate])
-            template = latex_jinja_env.get_template(os.path.join(path,templateFile))
+            template = latex_jinja_env.get_template(templateFile)
             for i in range(dataSet.getSize()):
                 cnt = str(seeds[i]).zfill(digits)
                 dataDict = {}
@@ -78,7 +79,7 @@ def main():
 
     if args.srcdir:
         #
-        # when running in a container, the user will map /app/src to their cwd. Need to fix this up
+        # when running in a container, the user will map /work/src to their cwd. Need to fix this up
         # to find the module correctly in the mapped drive
         #
 
@@ -107,7 +108,7 @@ def main():
         line_comment_prefix = '%#',
         trim_blocks = True,
         autoescape = False,
-        loader = jinja2.FileSystemLoader(os.path.abspath('.'))
+        loader = jinja2.FileSystemLoader(os.path.abspath(path))
     )
 
     templateValues = module.getTemplateValues(args.num, seeds)
