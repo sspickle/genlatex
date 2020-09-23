@@ -72,4 +72,7 @@ to build the full docker build (with a full LaTeX install ~7GB)
 CHANGES:
 
 	v 0.12: Added units to formatters (e.g., latex_float(2.31, units="m"))
+
+    v 0.14: add units to latex_float and latex_vec, add some doc tests.
 	
+    v 0.15: Changed the path handling to make it more Windows friendly.

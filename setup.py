@@ -4,7 +4,7 @@ with open('README.md') as f:
     long_description = f.read()
 
 setup(name='genlatex',
-      version='0.14',
+      version='0.15',
       description='A simple template based doc generator',
       long_description=long_description,
       long_description_content_type='text/markdown',
