@@ -6,20 +6,9 @@ I've cooked up a templating scheme using [jijna2](https://jinja.palletsprojects.
 
 This [article](http://eosrei.net/articles/2015/11/latex-templates-python-and-jinja2-generate-pdfs) was very helpful.
 
-To get started clone this repository, and create a virtual environment:
+Now that this has been published to pypi you can simply:
 
-    git clone https://github.com/sspickle/genlatex.git
-
-    cd genlatex
-
-    python -m venv venv
-
-    source venv/bin/activate  # mac/linux
-    ./venv/Scripts/activate.bat # windows
-
-    pip install -r requirements.txt
-
-    pip install .
+pip install genlatex
 
 Once you have that, you can 'cd' to the directory with your template and data generator file and run getlatex using:
 
@@ -37,21 +26,14 @@ To convert to pdf en-masse, with bash:
 
     find *.tex |  xargs -n 1 pdflatex
 
-To export to a .zip for import into an assessment first copy the pdf files to 
-a staging directory for zipping.
+If your dataGeneratorFile needs to import any modules you should add '.' 
+to the PYTHONPATH, e.g., 
 
-    cp tlo-2v1/*.pdf ../export/output/attachment/genlatex/quizzes/contents/
-    
-Next cd into export and run the `buildZip.sh` script.
+    PYTHONPATH=. genlatex -n 10 tlo-EX-Data.py
 
-    cd ../export
-    sh buildZip.sh
-    
-There should be an 'export.zip' file in the 'export' directory.
-
-I'm no longer keeping quiz sources in this repo, for obvious reasons!
-
-Students are smart. ;-)
+There is a shell script "buildZip.sh" that creates an importable
+.zip file that can be used to import quizzes into Sakai. It may
+also work for other LMS variations. Untested!
 
 Update: Now you can run the full docker (Dockerfile-w-latex) version:
 
