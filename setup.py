@@ -3,8 +3,10 @@ from setuptools import setup
 with open('README.md') as f:
     long_description = f.read()
 
+from genlatex import version
+
 setup(name='genlatex',
-      version='0.15',
+      version=version,
       description='A simple template based doc generator',
       long_description=long_description,
       long_description_content_type='text/markdown',

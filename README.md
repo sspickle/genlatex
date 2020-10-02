@@ -20,7 +20,7 @@ For example to create 10 versions of the example you could:
 
     genlatex -n 10 tlo-EX-Data.py
 
-Then check in the example folder for your .tex files!
+Then check in the folder for your .tex files!
 
 To convert to pdf en-masse, with bash:
 
