@@ -2,7 +2,7 @@
 
 This year I'm trying to generate quizzes automatically to the degree possible.
 
-I've cooked up a templating scheme using [jijna2](https://jinja.palletsprojects.com/en/2.11.x/)
+I've cooked up a templating scheme using [jijna2](https://jinja.palletsprojects.com/en/2.11.x/) that works with LaTeX templates.
 
 This [article](http://eosrei.net/articles/2015/11/latex-templates-python-and-jinja2-generate-pdfs) was very helpful.
 
@@ -26,14 +26,11 @@ To convert to pdf en-masse, with bash:
 
     find *.tex |  xargs -n 1 pdflatex
 
-If your dataGeneratorFile needs to import any modules you should add '.' 
-to the PYTHONPATH, e.g., 
+If your dataGeneratorFile needs to import any modules you should add '.' to the PYTHONPATH, e.g.,
 
     PYTHONPATH=. genlatex -n 10 tlo-EX-Data.py
 
-There is a shell script "buildZip.sh" that creates an importable
-.zip file that can be used to import quizzes into Sakai. It may
-also work for other LMS variations. Untested!
+There is a shell script "buildZip.sh" that creates an importable .zip file that can be used to import quizzes into Sakai. It may also work for other LMS variations. Untested!
 
 Update: Now you can run the full docker (Dockerfile-w-latex) version:
 
@@ -53,8 +50,8 @@ to build the full docker build (with a full LaTeX install ~7GB)
 
 CHANGES:
 
-	v 0.12: Added units to formatters (e.g., latex_float(2.31, units="m"))
+    v 0.12: Added units to formatters (e.g., latex_float(2.31, units="m"))
 
     v 0.14: add units to latex_float and latex_vec, add some doc tests.
-	
+
     v 0.15: Changed the path handling to make it more Windows friendly.
