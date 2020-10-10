@@ -110,7 +110,7 @@
           <mattext charset="ascii-us" texttype="text/plain" xml:space="default"><![CDATA[<p>This is a &quot;download, write, scan, upload&quot; question.</p>
 
 <ol>
-	<li>Please print the attached file.</li>
+	<li>Please print the attached file. <tt>{{ obj.fname }}</tt> </li>
 	<li>Answer on paper.</li>
 	<li>Scan your solution as a PDF file.</li>
 	<li>Upload your solution.</li>
