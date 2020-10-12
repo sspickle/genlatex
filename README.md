@@ -55,3 +55,14 @@ CHANGES:
     v 0.14: add units to latex_float and latex_vec, add some doc tests.
 
     v 0.15: Changed the path handling to make it more Windows friendly.
+
+    v 0.16: Update README & other doc-strings
+
+    v 0.17: Add file path to items.xml so export.zip would contain individual filenames for students/instructors.
+
+    v 0.18: Possible breaking change. latex_float arguments are switching order, units first to save typing.
+            Now you can type simply: latex_float(2.31,"m") and "m" will be units. If you want a different format
+            then 'fmt' must be supplied as a *third* argument, or with a keyword, e.g. latex_float(2.234, fmt="{:0.2g}").
+
+            Also, added a '-0' detector that should convert these to '0'.
+

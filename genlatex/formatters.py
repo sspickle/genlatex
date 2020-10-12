@@ -20,7 +20,7 @@ def listish(x):
     
     return result
 
-def latex_float(f, fmt="{0:.3g}", units=""):
+def latex_float(f, units="", fmt="{0:.3g}"):
     r"""
     convert scientific formats to LaTeXish.
     if units are specific, add them in roman font
@@ -33,6 +33,8 @@ def latex_float(f, fmt="{0:.3g}", units=""):
     '3.2 \\times 10^{-12}\\,{\\rm km}'
     """
     
+    if f == 0:
+        f = 0  # fix annoying `-0` results.
     float_str = fmt.format(f)
     if "e" in float_str:
         base, exponent = float_str.split("e")
@@ -46,7 +48,7 @@ def latex_float(f, fmt="{0:.3g}", units=""):
     return result
 
 
-def latex_vec(v, fmt="{0:.3g}", units=""):
+def latex_vec(v, units="", fmt="{0:.3g}"):
     r"""
     v could be a vpython vec/vector object, or an iterable
     >>> latex_vec([1,2,3])
@@ -61,7 +63,7 @@ def latex_vec(v, fmt="{0:.3g}", units=""):
     """
     if not listish(v):
         v = (v.x, v.y, v.z) # it must be a vpython vector, convert to tuple
-    v = f"<{latex_float(v[0], fmt)},{latex_float(v[1], fmt)},{latex_float(v[2], fmt)}>"
+    v = f"<{latex_float(v[0], fmt=fmt)},{latex_float(v[1], fmt=fmt)},{latex_float(v[2], fmt=fmt)}>"
     v = v.replace('<',r'\langle')
     v = v.replace('>',r'\rangle')
     if units:
