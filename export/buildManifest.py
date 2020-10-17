@@ -15,7 +15,8 @@ template = env.get_template('items.xml')
 
 print(sys.argv[1:])
 
-paths = [os.path.sep + os.path.sep.join(x.split(os.path.sep)[1:]) for x in sys.argv[1:]]
+#paths = [os.path.sep + os.path.sep.join(x.split(os.path.sep)[1:]) for x in sys.argv[1:]]
+paths = [os.path.sep.join(x.split(os.path.sep)[1:]) for x in sys.argv[1:]]
 
 print (paths)
 
