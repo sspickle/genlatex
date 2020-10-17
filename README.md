@@ -66,3 +66,8 @@ CHANGES:
 
             Also, added a '-0' detector that should convert these to '0'.
 
+    v 0.19: Modified the attachment file paths so that Canvas would accept them. Unfortunately canvas does not
+      	    support file upload questions in their current quiz tool.
+
+
+
