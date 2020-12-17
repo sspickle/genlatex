@@ -30,22 +30,26 @@ def checkDataSet(dataSet, args):
 def createTeXs(latex_jinja_env,
                path, seeds, args,
                templateFile,
-               dataSets):
+               dataSets, prefix=''):
 
     digits = math.ceil(math.log(max(seeds)+1,10)) # zfill digits
 
     for dataSet in dataSets:
         if checkDataSet(dataSet, args):
-            fnameTemplate = os.path.sep.join([path, dataSet.fileNameTemplate])
+            fnameTemplate = os.path.sep.join([path, prefix + dataSet.fileNameTemplate])
             template = latex_jinja_env.get_template(templateFile)
             for i in range(dataSet.getSize()):
                 cnt = str(seeds[i]).zfill(digits)
                 dataDict = {}
                 for k in dataSet.templateData:
-                    dataDict[k] = dataSet.templateData[k][i]
+                    if len(k) > 3 and k[:3] == 'def':
+                        dataDict[k[3:]] = dataSet.templateData[k]
+                    else:
+                        dataDict[k] = dataSet.templateData[k][i]
 
                 texPromptSource = template.render(**dataDict)
-                f = open(fnameTemplate.format(cnt),'w')
+                fname = fnameTemplate.format(cnt)
+                f = open(fname,'w')
                 f.write(texPromptSource)
                 f.close()
 
@@ -60,6 +64,8 @@ def main():
     parser.add_argument('--include', '-i', nargs='+', help='include these data keys')
     parser.add_argument('--debug', '-d', action='store_true', help='debug mode on')
     parser.add_argument('--srcdir', '-r', help='force source dir to be this')
+    parser.add_argument('--prefix', '-p', default='', help='prefix for filename')
+    parser.add_argument('--var', '-v', default='', help='define a template variable')
 
     args = parser.parse_args()
 
@@ -111,14 +117,15 @@ def main():
         loader = jinja2.FileSystemLoader(os.path.abspath(path))
     )
 
-    templateValues = module.getTemplateValues(args.num, seeds)
+    templateValues = module.getTemplateValues(args.num, seeds, args.var)
+
     if 'answers' in templateValues:
         templateFile, dataSets = ConvertOldStyleDataGenerator(templateValues)
     else:
         templateFile = templateValues['templateFile']
         dataSets = templateValues['dataSets']
     
-    createTeXs(latex_jinja_env, path, seeds, args, templateFile, dataSets)
+    createTeXs(latex_jinja_env, path, seeds, args, templateFile, dataSets, args.prefix)
 
 if __name__ == '__main__':
     main()
