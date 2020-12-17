@@ -62,7 +62,7 @@ nbformat==5.0.7
 networkx==2.5
 nibabel==3.1.1
 nipype==1.5.1
-notebook==6.1.1
+notebook>=6.1.5
 numpy==1.19.1
 packaging==20.4
 pandas==1.1.0
