@@ -1,6 +1,7 @@
 """
 format things for LaTeX
 """
+from si_prefix import si_format as si
 
 def listish(x):
     """
@@ -70,3 +71,26 @@ def latex_vec(v, units="", fmt="{0:.3g}"):
         v = v + r"\,{\rm " + units + "}"
     return v
 
+def eunits(val, units):
+    r"""
+    v could be a vpython vec/vector object, or an iterable
+    >>> eunits(0.003,"A")
+    '3.00\\,mA'
+    """
+    si_val = si(val,precision=4)
+    num,pfx=si_val.split(' ')
+    ip,fp = num.split('.')
+    len_fp = max(3 - len(ip),0)
+    if len_fp:
+        fp = fp[:len_fp]
+        num = '.'.join([ip,fp])
+    else:
+        num = ip
+    pfx = pfx.replace(chr(181),r'\mu ') # take care of micro units
+    si_val = r'\,'.join([num,pfx])
+    return si_val + units
+
+
+if __name__=='__main__':
+    import doctest
+    doctest.testmod()

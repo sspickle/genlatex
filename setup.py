@@ -17,6 +17,7 @@ setup(name='genlatex',
       packages=['genlatex'],
       install_requires=[
           'Jinja2',
+          'si_prefix'
       ],
       zip_safe=False,
       entry_points = {
