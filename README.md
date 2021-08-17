@@ -69,5 +69,7 @@ CHANGES:
     v 0.19: Modified the attachment file paths so that Canvas would accept them. Unfortunately canvas does not
       	    support file upload questions in their current quiz tool.
 
+    v 0.20: Added eunit formatter to use "engineering" units.
+
 
 
