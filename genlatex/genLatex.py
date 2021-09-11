@@ -1,13 +1,14 @@
 #!/usr/bin/env python
 
 import argparse
+import inspect
 import jinja2
 import os
 import math
 import random
 import importlib.util
 import sys
-import platform
+from inspect import signature
 
 from .convertOldStyle import ConvertOldStyleDataGenerator
 from .texData import TeXData
@@ -117,7 +118,11 @@ def main():
         loader = jinja2.FileSystemLoader(os.path.abspath(path))
     )
 
-    templateValues = module.getTemplateValues(args.num, seeds, args.var)
+    sig = inspect.signature(module.getTemplateValues)
+    if (len(sig.parameters) > 2) and (args.var):
+        templateValues = module.getTemplateValues(args.num, seeds, args.var)
+    else:
+        templateValues = module.getTemplateValues(args.num, seeds)
 
     if 'answers' in templateValues:
         templateFile, dataSets = ConvertOldStyleDataGenerator(templateValues)

@@ -12,5 +12,7 @@ __pycache__
 /export/output/*.xml
 genlatex.egg-info
 /dist
+/build
+
 
 
