@@ -72,3 +72,5 @@ CHANGES:
     v 0.20: Added eunit formatter to use "engineering" units.
 
     v 0.24: Various changes, includeing command line variables in templates.
+
+    v 0.25: Force wheel in pypi
