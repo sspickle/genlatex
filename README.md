@@ -74,3 +74,10 @@ CHANGES:
     v 0.24: Various changes, includeing command line variables in templates.
 
     v 0.25: Force wheel in pypi
+
+M1 Install with PyTikz:
+
+ brew install mupdf swig
+ brew install freetype
+ pip install https://github.com/pymupdf/PyMuPDF/archive/master.tar.gz
+ pip install git+https://github.com/allefeld/pytikz.git
