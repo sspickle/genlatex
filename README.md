@@ -1,4 +1,4 @@
-# Templating with LaTex and Python
+# Templating Assessments with LaTex and Python
 
 This year I'm trying to generate quizzes automatically to the degree possible.
 
