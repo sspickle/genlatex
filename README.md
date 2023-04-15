@@ -77,7 +77,7 @@ CHANGES:
 
 M1 Install with PyTikz:
 
- brew install mupdf swig
- brew install freetype
- pip install https://github.com/pymupdf/PyMuPDF/archive/master.tar.gz
- pip install git+https://github.com/allefeld/pytikz.git
+        brew install mupdf swig
+        brew install freetype
+        pip install https://github.com/pymupdf/PyMuPDF/archive/master.tar.gz
+        pip install git+https://github.com/allefeld/pytikz.git
