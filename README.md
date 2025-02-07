@@ -75,6 +75,10 @@ CHANGES:
 
     v 0.25: Force wheel in pypi
 
+    v 0.26: Clean up minor issues
+
+    v 0.27: Remove `\rm` in favor of `\mathrm`
+
 M1 Install with PyTikz:
 
         brew install mupdf swig

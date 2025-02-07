@@ -31,7 +31,7 @@ def latex_float(f, units="", fmt="{0:.3g}"):
     >>> latex_float(3.2e-12)
     '3.2 \\times 10^{-12}'
     >>> latex_float(3.2e-12,units='km')
-    '3.2 \\times 10^{-12}\\,{\\rm km}'
+    '3.2 \\times 10^{-12}\\mathrm{~km}'
     """
     
     if f == 0:
@@ -44,7 +44,7 @@ def latex_float(f, units="", fmt="{0:.3g}"):
         result = float_str
 
     if units:
-       result = result + r"\,{\rm " + units + "}"
+       result = result + fr"\mathrm{{~{units}}}"
 
     return result
 
@@ -60,7 +60,7 @@ def latex_vec(v, units="", fmt="{0:.3g}"):
     >>> latex_vec(vp.vec(1,2,3)*1e-10)
     '\\langle1 \\times 10^{-10},2 \\times 10^{-10},3 \\times 10^{-10}\\rangle'
     >>> latex_vec(vp.vec(1,2,3)*1e-10,units="m")
-    '\\langle1 \\times 10^{-10},2 \\times 10^{-10},3 \\times 10^{-10}\\rangle\\,{\\rm m}'
+    '\\langle1 \\times 10^{-10},2 \\times 10^{-10},3 \\times 10^{-10}\\rangle\\mathrm{~m}'
     """
     if not listish(v):
         v = (v.x, v.y, v.z) # it must be a vpython vector, convert to tuple
@@ -68,7 +68,7 @@ def latex_vec(v, units="", fmt="{0:.3g}"):
     v = v.replace('<',r'\langle')
     v = v.replace('>',r'\rangle')
     if units:
-        v = v + r"\,{\rm " + units + "}"
+        v = v + fr"\mathrm{{~{units}}}"
     return v
 
 def eunits(val, units):
