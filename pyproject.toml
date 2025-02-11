@@ -1,0 +1,26 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+[project]
+name = "genlatex"
+version = "0.28.0"
+authors = [
+  { name="Steve Spicklemire", email="steve@spvi.com" },
+]
+description = "A package to help generating latex files from templates"
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "jinja2",
+    "si-prefix",
+]
+packages=['src/genlatex']
+[project.urls]
+Homepage = "https://github.com/sspickle/genlatex"
+Issues = "https://github.com/sspickle/genlatex/issues"
+[project.scripts]
+genlatex = "genlatex:main"
